@@ -3,11 +3,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-inputEl = document.querySelector('input[name="searchQuery"]');
-formEl = document.querySelector('.search-form');
-galleryEl = document.querySelector('.gallery');
-loadMoreBtnEl = document.querySelector('.load-more');
-endMessageEl = document.querySelector('.end-message');
+const inputEl = document.querySelector('input[name="searchQuery"]');
+const formEl = document.querySelector('.search-form');
+const galleryEl = document.querySelector('.gallery');
+const loadMoreBtnEl = document.querySelector('.load-more');
+const endMessageEl = document.querySelector('.end-message');
 
 formEl.addEventListener('submit', onSerchPhotos);
 loadMoreBtnEl.addEventListener('click', onLoadMore);
