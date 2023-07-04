@@ -16,6 +16,9 @@ const API = new api;
 
 function onSerchPhotos(event) {
   event.preventDefault();
+  if(!inputEl.value) {
+    return;
+  }
   API.query = inputEl.value;
   API.resetPage();
   endMessageEl.classList.add('is-hidden');
@@ -39,6 +42,7 @@ function onSerchPhotos(event) {
   .catch(notifyError);
 }
 function onLoadMore() {
+  API.incrementPage();
   API.fetchPhotos()
   .then(data => {
     if (data.hits.length === 0) {
@@ -46,7 +50,7 @@ function onLoadMore() {
     }
     galleryEl.insertAdjacentHTML('beforeend', renderCard(data.hits));
     initLightbox();
-    API.incrementPage();
+    
     if (data.totalHits === galleryEl.children.length) {
       loader();
     }
